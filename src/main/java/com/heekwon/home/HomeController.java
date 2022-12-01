@@ -1,5 +1,7 @@
 package com.heekwon.home;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +41,18 @@ public class HomeController {
 		System.out.println(mdto.toString());
 		
 		return "joinOk";
+	}
+	
+	@RequestMapping(value="search")
+	public String search() {
+		
+		List<MemberDto> memberDtos =  memberRepository.findByName("홍길동");
+		
+		for(MemberDto memberDto : memberDtos) {
+			System.out.println(memberDto);
+		}
+		
+		return "searchResult";
 	}
 	
 }
