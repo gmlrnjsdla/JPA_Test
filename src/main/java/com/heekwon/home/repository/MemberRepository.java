@@ -10,6 +10,7 @@ public interface MemberRepository extends JpaRepository<MemberDto, Long>{
 	//<엔티티클래스 , 기본키의 타입>
 	
 	public List<MemberDto> findByName(String memberName);
+	public List<MemberDto> findByHakbun(Long hakbun);
 	public List<MemberDto> findByNameOrderByHakbunDesc(String memberName);
 	public List<MemberDto> findAllByOrderByHakbunDesc();
 	public List<MemberDto> findByNameOrGrade(String mamberName,int grade);
@@ -19,5 +20,10 @@ public interface MemberRepository extends JpaRepository<MemberDto, Long>{
 	public List<MemberDto> findByAgeGreaterThanEqual(int age);	//이상
 	public List<MemberDto> findByAgeBetween(int startAge, int EndAge);	//사잇값
 	public List<MemberDto> findByNameContaining(String nameKey);	//특정문자포함
-
+	public List<MemberDto> findByNameLike(String nameKey);	//특정문자포함
+	
+	
+	//데이터 삭제
+	public void deleteAllByName(String name); //이름으로 조회하여 삭제
+	
 }

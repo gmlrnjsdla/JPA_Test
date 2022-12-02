@@ -71,11 +71,11 @@ public class HomeController {
 	@RequestMapping(value="allmember")
 	public String allmember(HttpServletRequest request,Model model) {
 		
-//		List<MemberDto> memberDtos = memberRepository.findAllByOrderByHakbunDesc();
+		List<MemberDto> memberDtos = memberRepository.findAllByOrderByHakbunDesc();
 //		List<MemberDto> memberDtos2 = memberRepository.findAll(Sort.by(Sort.Direction.DESC, "hakbun"));
 //		List<MemberDto> memberDtos = memberRepository.findByNameOrGrade("홍길동", 1);
 //		List<MemberDto> memberDtos = memberRepository.findByAgeLessThan(60);
-		List<MemberDto> memberDtos = memberRepository.findByNameContaining("홍");
+//		List<MemberDto> memberDtos = memberRepository.findByNameContaining("홍");
 		
 		model.addAttribute("allmember", memberDtos);
 		
